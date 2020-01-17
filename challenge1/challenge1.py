@@ -5,6 +5,7 @@ class challenge1(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome("../chromedriver.exe")
+        self.driver.maximize_window()
 
     def tearDown(self):
         self.driver.close()
