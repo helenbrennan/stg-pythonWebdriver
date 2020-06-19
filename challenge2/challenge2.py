@@ -18,14 +18,15 @@ class challenge2(unittest.TestCase):
         self.driver.close()
 
     def test_challenge2(self):
-        searchField = self.driver.find_element(By.ID, "input-search")
-        searchField.send_keys("exotics")
-        searchBtn = self.driver.find_element(By.XPATH, '//*[@id="search-form"]//button')
-        searchBtn.click()
+        searchfield = self.driver.find_element(By.ID, "input-search")
+        searchfield.send_keys("porsche")
+        searchbtn = self.driver.find_element(By.XPATH, '//*[@id="search-form"]//button')
+        searchbtn.click()
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id='serverSideDataTable']")))
         dataelement = self.driver.find_element(By.XPATH, "//*[@id='serverSideDataTable']")
         text = dataelement.get_attribute("innerHTML")
         self.assertIn("PORSCHE", text)
+
 
 if __name__ == '__main__':
     unittest.main()
